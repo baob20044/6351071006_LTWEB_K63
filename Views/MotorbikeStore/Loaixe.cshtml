@@ -1,0 +1,5 @@
+﻿@model IEnumerable<MvcMotorbikeStore.Models.LOAIXE>
+@foreach (var item in Model)
+{
+    <li><a href="@Url.Action("SPTheoloaixe","MotorbikeStore", new {id = item.MaLX} )">@item.TenLoaiXe</a></li>
+}
