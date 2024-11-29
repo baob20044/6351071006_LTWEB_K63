@@ -136,7 +136,9 @@ img {
     height: 285px;
     padding: 0;
     margin: 0;
-    background: url(../Images/templatemo_header_bg.jpg) no-repeat;
+    background: url(../Images/banner3.jpg) no-repeat;
+    background-size:1000px;
+    object-fit:cover
 }
 
     #templatemo_header a, a:hover {
@@ -148,26 +150,53 @@ img {
         font-size: 14px;
         margin-top: 95px;
         margin-left: 490px;
-        width: 180px;
+        width: 380px;
     }
 
 #templatemo_special_offers a {
     font-size: 12px;
+    display:none
 }
 
 #templatemo_special_offers p {
     margin: 0 0 20px 0;
+    position: relative; /* Ensures the span moves within this container */
+}
+    #templatemo_special_offers p span {
+        font-size: 80px;
+        font-weight: bold;
+        white-space: nowrap;
+        position: absolute;
+        left: -450px;
+        top: 40px;
+        /* Solid color for maximum contrast */
+        color: #ff0000;
+        /* Strong, clear glow effect */
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff4500, 0 0 30px #ff4500, 0 0 40px #ff6347;
+        /* Optional glowing animation */
+        animation: clearGlow 1.5s infinite alternate;
+    }
+
+/* Animation keyframes */
+@keyframes clearGlow {
+    0% {
+        text-shadow: 0 0 5px #ff0000, 0 0 10px #ff4500, 0 0 20px #ff6347;
+    }
+
+    100% {
+        text-shadow: 0 0 10px #ff0000, 0 0 20px #ff4500, 0 0 40px #ff6347;
+    }
 }
 
-    #templatemo_special_offers p span {
-        font-size: 18px;
-    }
+
+
 
 #templatemo_header #templatemo_new_books {
     float: left;
     margin-top: 90px;
     margin-left: 55px;
     width: 180px;
+    display:none
 }
 
 #templatemo_new_books ul {
@@ -193,15 +222,17 @@ img {
 
     #templatemo_content #templatemo_content_left {
         float: left;
-        width: 188px;
-        padding: 10px;
-        background-color: #171716;
-        border: 1px solid #212120;
+        width: 180px; /* Slightly wider sidebar */
+        padding: 20px;
+        background-color: #2a2a2a; /* Darker background for contrast */
+        border-radius: 8px;
+        border: 1px solid #333;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
 
     #templatemo_content #templatemo_content_right {
         float: right;
-        width: 670px;
+        width: 690px;
     }
 
 
@@ -213,31 +244,53 @@ img {
 }
 
 .templatemo_content_left_section h1 {
-    font-size: 14px;
-    color: #cbc750;
-    padding: 0 0 5px 0;
-    margin: 0 0 10px 0;
-    border-bottom: 1px dotted #cbc750;
+    font-size: 16px;
+    color: #ffc107; /* A more modern gold color */
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ffc107;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .templatemo_content_left_section ul {
     padding: 0;
     margin: 0;
+    list-style: none;
 }
 
     .templatemo_content_left_section ul li {
-        padding: 0 0 3px 10px;
-        list-style: none;
+        padding: 8px 0 8px 20px;
+        margin: 5px 0;
+        border-left: 3px solid #333;
+        background-color: #222222; /* Slightly lighter than the sidebar */
+        transition: background-color 0.3s ease;
     }
 
         .templatemo_content_left_section ul li a {
             font-weight: normal;
             text-decoration: none;
-            color: #969547;
+            color: #ddd;
+            font-size: 14px;
+            transition: color 0.3s ease;
         }
 
-.templatemo_content_left_section li a:hover, .templatemo_content_left_section li .current {
-    color: #fcf88e;
+            .templatemo_content_left_section ul li a:hover {
+                color: #ffc107; /* Hover effect with the same gold color */
+            }
+
+.templatemo_content_left_section li a.current {
+    color: #ffc107; /* Current page color */
+    font-weight: bold;
+}
+
+.templatemo_content_left_section ul li:hover {
+    background-color: #333; /* Darker background on hover */
+}
+
+.templatemo_content_left_section li a.current:hover {
+    color: #fff; /* Highlight current page with white color on hover */
 }
 
 
@@ -281,7 +334,7 @@ img {
 }
 
 #templatemo_content_right li {
-    padding: 0 0 3px 0;
+    padding: 0 0 0px 0;
 }
 
 #templatemo_content_right .image_panel {
@@ -332,6 +385,22 @@ img {
     }
 /* end of footer */
 
-
-
-/* details*/
+/* Định dạng vùng phân trang */
+.MenuTrang {
+    text-align: center;
+    margin: 15px 0;
+}
+    .MenuTrang li {
+        padding: 0px
+    }
+    /* Định dạng các liên kết phân trang theo hàng ngang */
+    .MenuTrang a {
+        margin: 0 5px;
+        padding: 5px 10px;
+        text-decoration: none;
+        color: black;
+        border: 1px solid black;
+        border-radius: 2px;
+        background-color: white;
+        float: left
+    }

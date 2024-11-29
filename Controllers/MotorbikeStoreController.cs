@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList;
+using PagedList;
+using PagedList.Mvc;
 
+using Antlr.Runtime.Tree;
 namespace MvcMotorbikeStore.Controllers
 {
     public class MotorbikeStoreController : Controller
@@ -27,10 +31,12 @@ namespace MvcMotorbikeStore.Controllers
         }
 
         // GET: MotorbikeStore
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            var xemoi = Layxemoi(5); // Get the 5 newest motorbikes
-            return View(xemoi); // Pass the list to the view
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            var xemoi = Layxemoi(15); // Get the 5 newest motorbikes
+            return View(xemoi.ToPagedList(pageNum,pageSize)); // Pass the list to the view
         }
         public ActionResult Loaixe() 
         {
@@ -42,22 +48,42 @@ namespace MvcMotorbikeStore.Controllers
             var nhaphanphoi = from cd in data.NHAPHANPHOIs select cd;
             return PartialView(nhaphanphoi);
         }
-        public ActionResult SPTheoloaixe(int id)
+        public ActionResult SPTheoloaixe(int id, int? page)
         {
-            // Get the motorbike(s) based on the category ID
-            var xe = data.XEGANMAYs.Where(s => s.MaLX == id).ToList(); // Use ToList() to ensure it's a collection
-            return View(xe); // Pass a collection of XEGANMAY objects
+            // Số lượng mục mỗi trang
+            int pageSize = 10;
+
+            // Trang hiện tại, mặc định là trang 1 nếu không được truyền vào
+            int pageNumber = (page ?? 1);
+
+            // Lấy danh sách xe theo MaLX
+            var xe = data.XEGANMAYs.Where(s => s.MaLX == id).ToList();
+
+            // Chuyển đổi danh sách thành PagedList
+            var pagedXe = xe.ToPagedList(pageNumber, pageSize);
+
+            return View(pagedXe); // Truyền PagedList vào view
         }
-        public ActionResult SPTheoNPP(int id)
+        public ActionResult SPTheoNPP(int id, int? page)
         {
-            // Get the motorbike(s) based on the category ID
-            var xe = data.XEGANMAYs.Where(s => s.MaNPP == id).ToList(); // Use ToList() to ensure it's a collection
-            return View(xe); // Pass a collection of XEGANMAY objects
+            // Số lượng mục mỗi trang
+            int pageSize = 10;
+
+            // Trang hiện tại, mặc định là trang 1 nếu không có tham số page
+            int pageNumber = (page ?? 1);
+
+            // Lấy danh sách xe theo MaNPP
+            var xe = data.XEGANMAYs.Where(s => s.MaNPP == id).ToList();
+
+            // Chuyển danh sách thành PagedList
+            var pagedXe = xe.ToPagedList(pageNumber, pageSize);
+
+            return View(pagedXe); // Truyền PagedList vào view
         }
         public ActionResult Details(int id)
         {
             var xe = from s in data.XEGANMAYs
-                     where s.MaLX == id
+                     where s.MaXe == id
                      select s;
             return View(xe.Single());
         }

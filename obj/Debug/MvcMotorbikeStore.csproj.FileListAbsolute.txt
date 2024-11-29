@@ -156,3 +156,7 @@ D:\Code\Bài tập thầy Dương\MvcMotorbikeStore\MvcMotorbikeStore\obj\Debug\
 D:\Code\Bài tập thầy Dương\MvcMotorbikeStore\MvcMotorbikeStore\obj\Debug\MvcMotor.0E9FE16F.Up2Date
 D:\Code\Bài tập thầy Dương\MvcMotorbikeStore\MvcMotorbikeStore\obj\Debug\MvcMotorbikeStore.dll
 D:\Code\Bài tập thầy Dương\MvcMotorbikeStore\MvcMotorbikeStore\obj\Debug\MvcMotorbikeStore.pdb
+D:\Code\Bài tập thầy Dương\MvcMotorbikeStore\MvcMotorbikeStore\bin\PagedList.dll
+D:\Code\Bài tập thầy Dương\MvcMotorbikeStore\MvcMotorbikeStore\bin\PagedList.Mvc.dll
+D:\Code\Bài tập thầy Dương\MvcMotorbikeStore\MvcMotorbikeStore\bin\PagedList.xml
+D:\Code\Bài tập thầy Dương\MvcMotorbikeStore\MvcMotorbikeStore\bin\PagedList.Mvc.xml
