@@ -1,0 +1,92 @@
+﻿@using MvcMotorbikeStore.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<MvcMotorbikeStore.Models.XEGANMAY>
+
+@helper Truncate(string input, int length)
+    {
+        if(input.Length < length)
+        {
+            @input
+        }   
+        else
+        {
+            @input.Substring(0,length) <text>...</text>
+        }
+    }
+@{
+    ViewBag.Title = "Xe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2 style="font-size:40px; margin:20px 0">QUẢN LÝ THÔNG TIN XE GẮN MÁY</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Themmoixe")
+</p>
+<table class="table table-custom">
+    <tr>
+        <th style="width:200px;">Tên xe</th>
+        <th style="width:100px;">Giá bán</th>
+        <th style="width:300px;">Mô tả</th>
+        <th style="width:120px;">Ảnh bìa</th>
+        <th style="width:150px;">Ngày cập nhật</th>
+        <th style="width:120px;">Số lượng tồn</th>
+        <th style="width:120px;">Mã loại xe</th>
+        <th style="width:100px;">Mã nhà phân phối</th>
+        <th style="width:200px;"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenXe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giaban)
+            </td>
+            <td>
+                @Truncate(item.Mota, 100)
+            </td>
+            <td>
+                <img src="@Url.Content("~/Images/" + item.Anhbia)" width="150px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ngaycapnhat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluongton)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOAIXE.TenLoaiXe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NHAPHANPHOI.TenNPP)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Suaxe", new { id = item.MaXe }) |
+                @Html.ActionLink("Chi tiết", "Chitietxe", new { id = item.MaXe }) |
+                @Html.ActionLink("Xóa", "Xoaxe", new { id = item.MaXe })
+            </td>
+        </tr>
+    }
+
+</table>
+
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Xe", new {page = page}))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+        height: 0px
+    }
+    .table-custom {
+        border-color: white !important; /* Đặt màu viền là trắng */
+    }
+
+        .table-custom th, .table-custom td {
+            border: 1px solid white !important; /* Viền của các ô */
+        }
+</style>

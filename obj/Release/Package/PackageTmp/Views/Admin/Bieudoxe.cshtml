@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MvcMotorbikeStore.Models.ThongKeXeViewModel>
+@{ 
+    ViewBag.Title = "Bieudoxe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Thống kê số lượng xe theo từng loại</h2>
+
+<canvas id="thongKeChart" width="400" height="200"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var labels = [];
+    var data = [];
+
+    @foreach (var item in Model)
+    {
+        <text>
+            labels.push('@item.TenLoaiXe');
+            data.push(@item.SoLuongXe);
+        </text>
+    }
+
+    var ctx = document.getElementById('thongKeChart').getContext('2d');
+    var chart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Số lượng xe',
+                data: data,
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>

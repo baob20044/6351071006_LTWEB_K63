@@ -1,0 +1,119 @@
+﻿@model MvcMotorbikeStore.Models.XEGANMAY
+
+@{
+    ViewBag.Title = "Chitietxe";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>THÔNG TIN CHI TIẾT XE</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên xe:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenXe)
+        </dd>
+
+        <dt>
+            Giá bán:
+        </dt>
+
+        <dd>
+            @String.Format("{0:0,0}", Model.Giaban) VNĐ
+        </dd>
+
+        <dt>
+            Mô tả:
+        </dt>
+
+        <dd style="width:600px;text-align:justify">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Ảnh bìa:
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/Images/" + Model.Anhbia)" />
+        </dd>
+
+        <dt>
+            Ngày cập nhật:
+        </dt>
+
+        <dd>
+            @String.Format("{0:dd/MM/yyyy}", Model.Ngaycapnhat) VNĐ
+        </dd>
+
+        <dt>
+            Số lượng tồn:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluongton)
+        </dd>
+
+        <dt>
+            Loại xe:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOAIXE.TenLoaiXe)
+        </dd>
+
+        <dt>
+            Nhà phân phối:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NHAPHANPHOI.TenNPP)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("ĐIỀU CHỈNH", "Suaxe", new { id = Model.MaXe }) |
+    @Html.ActionLink("TRỜ VỀ", "Xe")
+</p>
+
+
+<style>
+    dl.dl-horizontal {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Each pair of dt and dd should be displayed in a row */
+    .dl-horizontal dt, .dl-horizontal dd {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 5px 0;
+    }
+
+    dt {
+        width: 150px; /* Adjust the width as needed for the term */
+        font-weight: bold;
+        margin-right: 10px; /* Add spacing between dt and dd */
+    }
+
+    dd {
+        flex: 1;
+        margin-left: 10px;
+    }
+
+    /* Optional: control dd width for specific content like Mota */
+    .dl-horizontal dd img {
+        width: 120px;
+    }
+
+    .dl-horizontal dd p {
+        text-align: justify;
+    }
+</style>

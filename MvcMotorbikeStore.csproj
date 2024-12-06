@@ -45,6 +45,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.17.1.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.17.1\lib\net472\AngleSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="AngleSharp.Css, Version=0.17.0.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.Css.0.17.0\lib\net472\AngleSharp.Css.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlSanitizer, Version=8.0.0.0, Culture=neutral, PublicKeyToken=61c49a1a9e79cc28, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlSanitizer.8.1.870\lib\net461\HtmlSanitizer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
@@ -53,9 +62,28 @@
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.8.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -127,6 +155,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\GiohangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MotorbikeStoreController.cs" />
@@ -140,9 +169,24 @@
       <DependentUpon>dbQLBanxeganmayDataContext.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\Giohang.cs" />
+    <Compile Include="Models\ThongKeXeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\css\bootstrap.min.css" />
+    <Content Include="Content\assets\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="Content\assets\css\bootstrap\mixins\_reset-text.css" />
+    <Content Include="Content\assets\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="Content\assets\css\bootstrap\mixins\_text-hide.css" />
+    <Content Include="Content\assets\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="Content\assets\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="Content\assets\css\bootstrap\_media.css" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\images\bg.jpg" />
+    <Content Include="Content\assets\js\bootstrap.min.js" />
+    <Content Include="Content\assets\js\jquery.min.js" />
+    <Content Include="Content\assets\js\main.js" />
+    <Content Include="Content\assets\js\popper.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -173,6 +217,8 @@
     <Content Include="Images\motor3.jpg" />
     <Content Include="Images\motor4.jpg" />
     <Content Include="Images\motor5.jpg" />
+    <Content Include="Images\motor7.jpg" />
+    <Content Include="Images\motor8.jpg" />
     <Content Include="Images\templatemo_ads.jpg" />
     <Content Include="Images\templatemo_bg.jpg" />
     <Content Include="Images\templatemo_btn_01.jpg" />
@@ -197,6 +243,105 @@
       <LastGenOutput>dbQLBanxeganmayDataContext.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\assets\.DS_Store" />
+    <Content Include="Content\assets\css\.DS_Store" />
+    <Content Include="Content\assets\css\bootstrap\.DS_Store" />
+    <Content Include="Content\assets\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="Content\assets\fonts\.DS_Store" />
+    <Content Include="Content\assets\images\.DS_Store" />
+    <Content Include="Content\assets\js\.DS_Store" />
+    <Content Include="Content\assets\scss\.DS_Store" />
+    <Content Include="Content\assets\scss\bootstrap\.DS_Store" />
+    <Content Include="Content\assets\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Content\assets\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\assets\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Content\assets\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Content\assets\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Content\assets\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_alert.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_badge.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_button-group.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_buttons.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_card.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_carousel.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_close.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_code.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_forms.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_functions.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_grid.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_images.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_input-group.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_list-group.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_media.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_mixins.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_modal.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_nav.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_navbar.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_pagination.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_popover.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_print.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_progress.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_reboot.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_root.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_spinners.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_tables.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_toasts.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_transitions.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_type.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_utilities.scss" />
+    <Content Include="Content\assets\scss\bootstrap\_variables.scss" />
+    <Content Include="Content\assets\scss\style.scss" />
     <None Include="Models\dbQLBanxeganmayDataContext.dbml.layout">
       <DependentUpon>dbQLBanxeganmayDataContext.dbml</DependentUpon>
     </None>
@@ -211,6 +356,126 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="tinymce\js\tinymce\icons\default\icons.min.js" />
+    <Content Include="tinymce\js\tinymce\models\dom\model.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\accordion\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojiimages.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojiimages.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\ar.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\bg_BG.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\ca.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\cs.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\da.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\de.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\el.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\en.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\es.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\eu.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\fa.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\fi.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\fr_FR.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\he_IL.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\hi.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\hr.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\hu_HU.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\id.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\it.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\ja.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\kk.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\ko_KR.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\ms.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\nb_NO.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\nl.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\pl.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\pt_BR.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\pt_PT.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\ro.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\ru.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\sk.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\sl_SI.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\sv_SE.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\th_TH.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\tr.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\uk.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\vi.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\zh_CN.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\js\i18n\keynav\zh_TW.js" />
+    <Content Include="tinymce\js\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\skins\content\dark\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\content\dark\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\default\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\content\default\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\document\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\content\document\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\tinymce-5-dark\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\content\tinymce-5-dark\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\tinymce-5\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\content\tinymce-5\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\content\writer\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.inline.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.shadowdom.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide-dark\skin.shadowdom.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.inline.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.shadowdom.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\oxide\skin.shadowdom.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.inline.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.shadowdom.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5-dark\skin.shadowdom.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\content.inline.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\content.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\skin.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\skin.shadowdom.js" />
+    <Content Include="tinymce\js\tinymce\skins\ui\tinymce-5\skin.shadowdom.min.css" />
+    <Content Include="tinymce\js\tinymce\themes\silver\theme.min.js" />
+    <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -238,6 +503,18 @@
     <Content Include="Views\Giohang\GiohangPartial.cshtml" />
     <Content Include="Views\Giohang\DatHang.cshtml" />
     <Content Include="Views\Giohang\Xacnhandonhang.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Xe.cshtml" />
+    <Content Include="Views\Admin\Themmoixe.cshtml" />
+    <Content Include="tinymce\CHANGELOG.md" />
+    <Content Include="tinymce\js\tinymce\langs\README.md" />
+    <Content Include="tinymce\js\tinymce\license.md" />
+    <Content Include="Views\Admin\Chitietxe.cshtml" />
+    <Content Include="Views\Admin\Xoaxe.cshtml" />
+    <Content Include="Views\Admin\Suaxe.cshtml" />
+    <Content Include="Views\Admin\Bieudoxe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -272,6 +549,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="tinymce\js\tinymce\tinymce.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

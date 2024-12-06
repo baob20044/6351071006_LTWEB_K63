@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({
+            selector: 'textarea',
+            plugins: 'advlist autolink link image lists print preview',
+            toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright | bullist numlist outdent indent | link image',
+            menubar: false
+        });
+    </script>
+</head>
+<body>
+    <div id="templatemo_container">
+        <div id="templatemo_menu">
+            <ul>
+                <li>@Html.ActionLink("TRANG CHỦ", "Index", "Admin")</li>
+                <li>@Html.ActionLink("Quản lý loại xe", "Index", "Admin")</li>
+                <li>@Html.ActionLink("Quản lý nhà phân phối", "Index", "Admin")</li>
+                <li>@Html.ActionLink("Quản lý xe", "Xe", "Admin")</li>
+                <li>@Html.ActionLink("Thống kê xe", "Bieudoxe", "Admin")</li>
+            </ul>
+        </div> <!-- end of menu -->
+
+        <div id="templatemo_header">
+            <div id="templatemo_special_offers">
+                <p>
+                    <span>MOTORBIKE STORE</span>
+                </p>
+                <a href="#" style="margin-left: 50px;">Read more...</a>
+            </div>
+
+
+            <div id="templatemo_new_books">
+                <p>
+                    <span>HERE YOUR DREAM TRUE</span>
+                </p>
+                <a href="#" style="margin-left: 50px;">Read more...</a>
+            </div>
+        </div> <!-- end of header -->
+        <div>
+            @RenderBody()
+        </div>
+        <div id="templatemo_footer">
+
+            <a href="#">Home</a> | <a href="#">Search</a> | <a href="#">Motorbike</a> | <a href="#">New Releases</a> | <a href="#">FAQs</a> | <a href="#">Contact Us</a><br />
+            Copyright © 2024 <a href="#"><strong>Dinh Quoc Bao - 6351071006</strong></a>
+            <!-- Credit: www.templatemo.com -->
+        </div>
+        <!-- end of footer -->
+        <!--  Free CSS Template www.templatemo.com -->
+    </div> <!-- end of container -->
+</body>
+</html>
